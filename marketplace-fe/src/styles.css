@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: #1d976c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #93f9b9,
+    #1d976c
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #93f9b9,
+    #1d976c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: "Montserrat", sans-serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+.site-title {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+.icon {
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.btn {
+    margin: 12px;
+    font-size: 18px;
+    margin-bottom: 0px;
+}
