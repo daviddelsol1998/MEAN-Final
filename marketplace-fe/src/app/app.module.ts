@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { ShowProductsComponent } from './components/show-products/show-products.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { ShowProductsComponent } from './components/show-products/show-products.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(), 
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
