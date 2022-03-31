@@ -23,7 +23,7 @@
                 <td>{{ product.location }}</td>
                 <td>{{ product.price | currency: "USD" }}</td>
                 <td>
-                    <i class="fa-solid fa-pen-to-square icon text-success"></i>
+                    <i [routerLink]="['/edit-product',product._id]" class="fa-solid fa-pen-to-square icon text-success"></i>
                     <i (click)="deleteProduct(product._id)" class="fa-solid fa-trash-can icon text-danger"></i>
                 </td>
               </tr>

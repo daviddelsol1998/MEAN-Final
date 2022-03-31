@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body text-center">
                 <span>
-                    <h1 class="site-title"><u>Add a new product</u></h1>
+                    <h1 class="site-title"><u>{{title}}</u></h1>
                     <br>
                     <form class="form-horizontal" [formGroup]="productForm" (ngSubmit)="addProduct()">
                         <div class="text-danger" *ngIf="productForm.get('product')?.hasError('required') && productForm.get('product')?.touched">
