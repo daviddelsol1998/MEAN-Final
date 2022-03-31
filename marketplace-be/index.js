@@ -6,6 +6,8 @@ const dbConnection = require('./config/database')
 
 dbConnection()
 
+app.use(express.json())
+
 app.use('/api/products', require('./routes/product'))
 
 app.get('/', (req, res) => {
