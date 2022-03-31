@@ -71,7 +71,7 @@ export class CreateProductComponent implements OnInit {
 
   editing() {
     if (this.id !== null) {
-      this.title = 'Editar Producto';
+      this.title = 'Edit Product';
       this._productService.getProduct(this.id).subscribe((data) => {
         this.productForm.setValue({
           product: data.name,
