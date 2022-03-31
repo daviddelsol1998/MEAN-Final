@@ -32,7 +32,7 @@ export class CreateProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.editing()
+    this.editing();
   }
 
   addProduct() {
@@ -42,19 +42,31 @@ export class CreateProductComponent implements OnInit {
       location: this.productForm.get('location')?.value,
       price: this.productForm.get('price')?.value,
     };
-    
 
-    this._productService.createProduct(completeProduct).subscribe(
-      (data) => {
-        this.toastr.success('Your Product has been added!', 'Success');
-        console.log(completeProduct);
-        this.router.navigate(['/']);
-      },
-      (err) => {
-        console.log(err);
-        this.productForm.reset();
-      }
-    );
+    if (this.id !== null) {
+      this._productService.editProduct(this.id, completeProduct).subscribe(
+        (data) => {
+          this.toastr.success('Your Product has been edited!', 'EDITED');
+          this.router.navigate(['/']);
+        },
+        (err) => {
+          console.log(err);
+          this.productForm.reset();
+        }
+      );
+    } else {
+      this._productService.createProduct(completeProduct).subscribe(
+        (data) => {
+          this.toastr.success('Your Product has been added!', 'CREATED');
+          console.log(completeProduct);
+          this.router.navigate(['/']);
+        },
+        (err) => {
+          console.log(err);
+          this.productForm.reset();
+        }
+      );
+    }
   }
 
   editing() {
