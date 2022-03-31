@@ -6,7 +6,7 @@
           <h1 class="text-success site-title"> 🥕 Neighborhood Marketplace 🥕</h1>
           <h2 class="text-"><u>Available Products</u></h2>
           <button class="btn-success float-end btn-lg" routerLink="/create-product">Add Product</button>
-          <table class="table table-striped mt-5">
+          <table *ngIf="listProducts.length > 0" class="table table-striped mt-5">
             <thead>
               <tr>
                 <th scope="col">Name</th>
@@ -17,29 +17,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td scope="row">AEW DVD</td>
-                <td>Movie/Entertainment</td>
-                <td>Main St, Ephraim,UT</td>
-                <td>$25</td>
+              <tr *ngFor=" let product of listProducts">
+                <td scope="row">{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.location }}</td>
+                <td>{{ product.price | currency: "USD" }}</td>
                 <td>
                     <i class="fa-solid fa-pen-to-square icon text-success"></i>
-                    <i class="fa-solid fa-trash-can icon text-danger"></i>
-                </td>
-              </tr>
-
-              <tr>
-                <td scope="row">AEW DVD</td>
-                <td>Movie/Entertainment</td>
-                <td>Main St, Ephraim,UT</td>
-                <td>$25</td>
-                <td>
-                    <i class="fa-solid fa-pen-to-square icon text-success"></i>
-                    <i class="fa-solid fa-trash-can icon text-danger"></i>
+                    <i (click)="deleteProduct(product._id)" class="fa-solid fa-trash-can icon text-danger"></i>
                 </td>
               </tr>
             </tbody>
           </table>
+          <h5 *ngIf="listProducts.length==0">there are no available products at this time</h5>
         </span>
       </div>
     </div>
